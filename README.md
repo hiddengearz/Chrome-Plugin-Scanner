@@ -37,6 +37,6 @@ chromeplugins.csv
 
 | Extension  |Computer   |Location|
 |-------------|---|---|
-|Google Slides|PC1.domain|\\PC1.domain\\C$\\users\\user\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\aapocclcgogkmnckokdopfmhonfmgoek\\|
-|Google Docs|PC2.domain|\\PC2.domain\\C$\\users\\user2\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\aohghmighlieiainnegkcijnfilokake\\|
-|Google Drive|192.168.0.1|\\192.168.0.1\\C$\\users\\user3\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\apdfllckaahabafndbhieahigkjlhalf\\|
+|Google Slides|PC1.domain|\\PC1.domain\\C$\\users\\user\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\aapocclcgogkmnckokdopfmhonfmgoek\\
+|Google Docs|PC2.domain|\\PC2.domain\\C$\\users\\user2\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\aohghmighlieiainnegkcijnfilokake\\
+|Google Drive|192.168.0.1|\\192.168.0.1\\C$\\users\\user3\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\apdfllckaahabafndbhieahigkjlhalf\\
