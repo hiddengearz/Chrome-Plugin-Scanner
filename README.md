@@ -18,6 +18,8 @@ The Chrome Plugin Scanner is a multi-threaded python script that will connect to
 -T #, -timeout # how long to spend on scanning each pc before ending the scan
 -f [file], -file [file] the location of the file containing all of the systems
 -o [file], -output [file] file location/name, defaults is results.csv
+-v, will provide more information on the scan while it\'s running
+-h, -help will provide help information
 ```
 
 # Example
