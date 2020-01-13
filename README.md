@@ -2,6 +2,7 @@
 The Chrome Plugin Scanner is a multi-threaded python script that will connect to any computer provided (assuming the account executing the script has permissions) and will find all installed chrome plugins and save them in a CSV containing the plugin name, who installed it and it's location.
 
 Tested with windows 2003 and newer
+The script assumes the users folder is in the C drive
 
 
 # Requirments
