@@ -131,7 +131,7 @@ def main():
             _chunksize = int(sys.argv[i+1])
         elif '-T' in arg or '-timeout' in arg:
             _timeout = int(sys.argv[i+1])
-        elif '-F' in arg or '-file' in arg:
+        elif '-f' in arg or '-file' in arg:
             _file = str(sys.argv[i+1])
         elif '-o' in arg or '-output' in arg:
             _destination = str(sys.argv[i+1])
@@ -142,7 +142,7 @@ def main():
             print('-c #, -chunksize # total ammount of PC\'s each thread should scan')
             print('-T #, -timeout # how long to spend on scanning each pc before ending the scan')
             print('-o [file], -output [file] file location/name, defaults is results.csv')
-            print('-F [file], -file [file] the location of the file containing all of the systems')
+            print('-f [file], -file [file] the location of the file containing all of the systems')
             _continue = False;
 
     if _continue:
