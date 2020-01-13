@@ -32,3 +32,11 @@ PC1.domain
 PC2.domain
 192.168.0.1
 ```
+
+chromeplugins.csv
+
+| Extension  |Computer   |Location|
+|-------------|---|---|
+|Google Slides|PC|\\PC\\C$\\users\\user\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\aapocclcgogkmnckokdopfmhonfmgoek\\|
+|Google Docs|PC|\\PC\\C$\\users\\user2\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\aohghmighlieiainnegkcijnfilokake\\|
+|Google Drive|PC|\\PC\\C$\\users\\user3\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\apdfllckaahabafndbhieahigkjlhalf\\|
