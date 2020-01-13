@@ -1,10 +1,13 @@
-# Chrome Plugin canner
-This script will scan the provided windows PC's with the current users credentials for chrome plugins. A CSV is then generated listing each plugin, the user who installed it and it's location.
+# Chrome Plugin Scanner
+The Chrome Plugin Scanner is a multi-threaded python script that will connect to any computer provided (assuming the account executing the script has permissions) and will find all installed chrome plugins and save them in a CSV containing the plugin name, who installed it and it's location.
+
+Tested with windows 2003 and newer
 
 
 # Requirments
 
-Python 3.5+
+* Python 3.5+
+* Run the script with an account that has read permissions to all user folders on the desired systems
 
 # Useage
 
@@ -19,3 +22,10 @@ Python 3.5+
 # Example
 
 `python3 newmain.py -t 50 -c 5 -f systems.txt -o chromeplugins.csv`
+
+Systems.txt:
+```
+PC1.domain
+PC2.domain
+192.168.0.1
+```
