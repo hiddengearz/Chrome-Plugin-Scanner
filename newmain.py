@@ -142,6 +142,7 @@ def main():
             print('-c #, -chunksize # total ammount of PC\'s each thread should scan')
             print('-T #, -timeout # how long to spend on scanning each pc before ending the scan')
             print('-o [file], -output [file] file location/name, defaults is results.csv')
+            print('-v, will provide more information on the scan while it\'s running')
             print('-f [file], -file [file] the location of the file containing all of the systems')
             _continue = False;
 
