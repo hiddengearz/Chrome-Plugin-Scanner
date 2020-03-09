@@ -123,6 +123,7 @@ def main():
     _file = 'systems.txt'
     _continue = True;
     _destination = 'results.csv'
+    _target = ""
 
     for i, arg in enumerate(sys.argv):
         if '-t' in arg or '-threads' in arg:
@@ -131,19 +132,24 @@ def main():
             _chunksize = int(sys.argv[i+1])
         elif '-T' in arg or '-timeout' in arg:
             _timeout = int(sys.argv[i+1])
-        elif '-f' in arg or '-file' in arg:
+        elif '-sf' in arg or '-sourcefile' in arg:
             _file = str(sys.argv[i+1])
+        elif '-s' in arg or '-Source' in arg:
+            _target = str(sys.argv[i+1])
         elif '-o' in arg or '-output' in arg:
             _destination = str(sys.argv[i+1])
         elif '-v' in arg or '-verbose' in arg:
             verbose = True
         elif '-h' in arg or '-H' in arg or '-help' in arg:
+            print('example: python pluginScanner.py -s SMHPC27429 -o SMHPC27429.csv')
+            print('example: python pluginScanner.py -sf allsmhpcs.txt -o SMH.csv')
             print('-t #, -threads # total ammount of threads to use')
             print('-c #, -chunksize # total ammount of PC\'s each thread should scan')
             print('-T #, -timeout # how long to spend on scanning each pc before ending the scan')
             print('-o [file], -output [file] file location/name, defaults is results.csv')
             print('-v, will provide more information on the scan while it\'s running')
-            print('-f [file], -file [file] the location of the file containing all of the systems')
+            print('-s [PC Name], -source [PC Name] the name of the PC')
+            print('-sf [file], -sourcefile [file] the location of the file containing a list of the systems')
             _continue = False;
 
     if _continue:
@@ -154,25 +160,32 @@ def main():
         if _chunksize == 0:
             _chunksize = 50
 
-        systems = os.getcwd() + f'\\{_file}'
-        with open(systems) as f:
-            content = f.readlines()
-            for i, PC in enumerate(content):
-                PCS.append(PC.rstrip())
+        if _target == "":
+            systems = os.getcwd() + f'\\{_file}'
+            with open(systems) as f:
+                content = f.readlines()
+                for i, PC in enumerate(content):
+                    PCS.append(PC.rstrip())
 
-        with concurrent.futures.ProcessPoolExecutor(max_workers=_threads) as pool:
-            for i, res in enumerate(pool.map(ScanPC, PCS, chunksize=_chunksize)):
-                try:
-                    if verbose:
-                        print(f"Finished scanning {PCS[i]} {i + 1}/{len(content)}")
-                    extensions += res
-                except:
-                    if verbose:
-                        print("timeout")
+            with concurrent.futures.ProcessPoolExecutor(max_workers=_threads) as pool:
+                for i, res in enumerate(pool.map(ScanPC, PCS, chunksize=_chunksize)):
+                    try:
+                        if verbose:
+                            print(f"Finished scanning {PCS[i]} {i + 1}/{len(content)}")
+                        extensions += res
+                    except:
+                        if verbose:
+                            print(f"timeout, couldn't scan {PCS[i]}")
+
+        else:
+            PCS.append(_target.rstrip())
+            extensions += ScanPC(_target)
+
+
 
         os.chdir(origDir)
 
-        file_name = "results.csv"
+        file_name = _destination
         if os.path.isfile(file_name):
             expand = 1
             while True:
@@ -191,7 +204,7 @@ def main():
             with open(file_name, 'w') as myfile:
                 writer = csv.writer(myfile, lineterminator='\n')
                 writer.writerows(extensions)
-                print(file_name)
+                print('Results in ' + file_name)
 
         print('done')
         print('The script took {0} second!'.format(time.time() - startTime))
